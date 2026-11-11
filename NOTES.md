@@ -5,22 +5,26 @@ MSSV: 2A202603587
 
 ## 1. Case được chọn
 
-- ID case:
-- Câu trả lời của agent:
-- Điểm ở lần chạy 1:
+- ID case: A5
+- Câu trả lời của agent:Cần trích nguyên văn từ eval_before.json
+- Điểm ở lần chạy 1:57/100
 
 ## 2. Bằng chứng trong trace
 
 Dán đoạn trace chứng minh lỗi và nêu nguyên nhân có thể xảy ra.
 
 ```text
+Case A5 đạt 57/100.
+Nhận xét của Judge cho thấy Agent chưa giải thích rõ giới hạn phạm vi dữ liệu incident.
+Điều này có thể khiến người dùng hiểu nhầm rằng kết quả truy xuất bao phủ toàn bộ lịch sử sự cố.
 
+Nguyên nhân có thể do Agent chưa diễn giải đầy đủ giới hạn dữ liệu từ công cụ trong câu trả lời cuối cùng.
 ```
 
 ## 3. Thay đổi đã thực hiện
 
-- Sửa gì, ở đâu:
-- Vì sao chọn thay đổi này:
+- Sửa gì, ở đâu: Cải tiến agent.py, bổ sung cơ chế Evidence Gate trong hàm run_agent().
+- Vì sao chọn thay đổi này: Giúp hạn chế câu trả lời thiếu nguồn và đáp ứng contract kiểm tra nguồn của bài lab.
 
 ## 4. So sánh hai lần chạy
 
